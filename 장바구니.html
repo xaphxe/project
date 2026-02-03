@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--폰트어썸 CDN : -->
+        <script src="https://kit.fontawesome.com/4ec79785b5.js" crossorigin="anonymous"></script>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            nav{
+                background-color: rgba(128, 128, 128, 0.205);
+                display: flex;
+                justify-content: space-around;
+                height: 70px;
+                align-items: center;
+                padding-top: 15px;
+            }
+            
+            ul{
+                list-style: none;
+                display: flex;
+            }
+            li{
+                padding: 0 15px;
+            }
+            
+            a{
+                text-decoration: none;
+                color: rgba(0, 0, 0, 0.329);
+                font-weight: 800;
+            }
+            .appo{
+                padding: 0 5px;
+            }
+            a:hover{
+                color: rgb(113, 172, 192);
+            }
+            .appo:hover{
+                background-color: blue;
+                cursor: pointer;
+                color: aliceblue;
+                border-radius: 7px;
+            }
+            /* 브라우저 가로가 768이하일때 */
+            @media screen and (max-width:768px) {
+                nav{
+                    height: 175px;
+                    align-items: flex-start;
+                }
+                .navbar ul{
+                    flex-direction: column;
+                }
+                .navbar ul li{
+                    line-height: 2;
+                }
+                
+            }
+            .container{
+                /* display: flex; */
+                background-color: white;
+            }
+            .container{
+                cursor: pointer;
+                width: 100%;
+                height: 700px;
+            }
+            h2{
+                margin-top: 10%;
+                margin-left: 10%;
+            }
+            pre{
+                margin-left: 10%;
+            }
+            .container .btn{
+                margin-left: 10%;
+                background-color: black;
+                color: #fff;
+                width: 100px;
+                height: 50px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .container .btn2{
+                border: 0;
+                background-color: rgba(0, 0, 0, 0.178);
+                color: #fff;
+                margin: 10px;
+                width: 100px;
+                height: 50px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .container2{
+                display: flex;
+                background-color: black;
+                width: 100%;
+                height: 500px;
+            }
+            .container2 .box1, .container2 .box2, .container2 .box3, .container2 .box4{
+                color: white;
+                margin: auto;
+            }
+            .container2 a{
+                color: white;
+            }
+            .container2 .box3 .submit-btn{
+                background-color: black;
+                border: 2px solid white;
+                padding: 10px;
+                font-size: 14px;
+                width: 180px;
+                color: #fff;
+                cursor: pointer;
+            }
+            .navbar.hide{
+                display: none;
+            }
+            .search-box{
+                display: none;
+                flex: 1;
+            }
+            .search-box.show{
+                display: block;
+            }
+            .search-box input {
+                width: 60%;
+                padding: 10px;
+                margin-left: 30%;
+                font-size: 12px;
+                border: 0;
+            }
+            table{
+                margin-top: 50px;
+                margin-left: 10%;
+                width: 80%;
+                /* border: 1px solid black;                */
+            }
+            .tb-center{
+                text-align: center;
+            }
+            thead{
+                border-color:  black;
+            }
+        </style>
+</head>
+<body>
+    <nav>
+    <div class="logo">
+        <h1> &nbsp; 
+            &nbsp; </h1>
+        <!-- 엔티티코드 -->
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="new.html">New Era</a></li>
+            <li><a href="sup.html">Supreme</a></li>
+            <li><a href="sup.html">AFTERMATH</a></li>
+            <li><a href="open.html">Open Yy</a></li>
+        </ul>
+    </div>
+    <div class="search-box">
+        <input type="text" placeholder="검색어를 입력하세요">
+    </div>
+    <div class="icons">
+        <ul>
+            <li><a href="#"><i class="fa-solid fa-magnifying-glass" id="searchIcon"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-bucket"></i></a></li>
+            <li><a href="개인정보.html"><i class="fa-solid fa-user"></i></a></li>
+            <li class="appo"><i class="fa-solid fa-bars"></i></li>
+        </ul>
+    </div>
+    
+   
+        
+</nav>
+<div class="container">
+    <h2>장바구니</h2><br><br>
+    <pre>*장바구니 보관 기간 최대 14일</pre>
+    <button type="submit" class="btn">전체선택</button>
+    <button type="submit" class="btn2">선택삭제</button>
+    
+    <table summary="번호, 사진, 제품명, 수량, 적립, 가격, 배송비, 취소">
+    <caption></caption>
+        <colgroup>
+        <col width="90">
+        <col width="50">
+        <col width="150">
+        <col width="*">
+        <col width="*">
+        <col width="90">
+        <col width="120">
+        </colgroup>
+        <thead>
+            <tr>
+            <th scope="col"><div class="tb-center"><input type="checkbox" name="__allcheck" onclick="all_basket_check(this, 1);" class="MS_input_checkbox" checked=""></div></th>                                  
+            <th scope="col"><div class="tb-center">번호</div></th>
+            <th scope="col"><div class="tb-center">사진</div></th>
+            <th scope="col"><div class="tb-center">제품명</div></th>
+            <th scope="col"><div class="tb-center">옵션</div></th>
+            <th scope="col"><div class="tb-center">적립</div></th>
+            <th scope="col"><div class="tb-center">가격</div></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+        <tr>
+        <td colspan="7">
+            <div class="tb-center">장바구니에 담긴 상품이 없습니다.</div>
+        </td>
+        </tr>
+        </tfoot>
+    </table>
+
+</div>
+
+
+<div class="container2">
+    <div class="box1">
+        <h3>GUIDE</h3><br>
+        <a href=""><p>오프라인 매장안내</p></a>
+        <a href=""><p>손질 및 세탁법</p></a>
+        <a href=""><p>룩북</p></a>
+        <a href=""><p>실루엣 가이드</p></a>
+        <a href=""><p>사이즈 차트</p></a>
+        <a href=""><p>상품 리뷰</p></a>
+    </div>
+    <div class="box2">
+        <h3>CUSTOMER</h3><br>
+        <a href=""><p>주문조회</p></a>
+        <a href=""><p>1:1 문의</p></a>
+        <a href=""><p>Q&A</p></a>
+        <a href=""><p>자주 묻는 질문</p></a>
+        <a href=""><p>교환/반품 안내</p></a>
+        <a href=""><p>A/S수선서비스</p></a>
+    </div>
+    <div class="box3">
+        <h3>MEMBERSHIP</h3><br>
+        <a href=""><button type="submit" class="submit-btn">멤버십 서비스</button></a><br><br>
+        CS고객센터<span> 02-000-000</span>
+        <p>상담시간 10:00-17:30</p>
+        <p>주말 및 공휴일 휴무</p>
+    </div>
+    <div class="box4">
+        <h3>GLOBAL</h3><br>
+        <a href=""><p>US</p></a>
+        <a href=""><p>JAPAN</p></a>
+        <a href=""><p>Q&A</p></a>
+        <a href=""><p>UK</p></a>
+        <a href=""><p>AUSTRALIA</p></a>
+        <a href=""><p>BRAZIL</p></a>
+    </div>
+</div>
+<script>
+  const searchIcon = document.getElementById('searchIcon');
+  const navbar = document.querySelector('.navbar');
+  const searchbox = document.querySelector('.search-box');
+  
+
+  searchIcon.addEventListener('click', () => {
+    navbar.classList.toggle('hide');
+    searchbox.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>

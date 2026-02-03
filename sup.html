@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--폰트어썸 CDN : -->
+        <script src="https://kit.fontawesome.com/4ec79785b5.js" crossorigin="anonymous"></script>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            nav{
+                background-color: rgba(128, 128, 128, 0.205);
+                display: flex;
+                justify-content: space-around;
+                height: 70px;
+                align-items: center;
+                padding-top: 15px;
+            }
+        
+            ul{
+                list-style: none;
+                display: flex;
+            }
+            li{
+                padding: 0 15px;
+            }
+            a{
+                text-decoration: none;
+                color: gray;
+                font-weight: 800;
+            }
+        
+            .fixed2{
+            background-color: rgb(2, 104, 2);
+            color: white;
+            width: 150px;
+            height: 100px;
+            position: fixed;
+            top:320px;
+            right: 50px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            font-weight: bold;
+            text-align: center;
+            }
+            .appo{
+                padding: 0 5px;
+            }
+            a:hover{
+                color: black;
+            }
+            .appo:hover{
+                background-color: blue;
+                cursor: pointer;
+                color: aliceblue;
+                border-radius: 7px;
+            }
+            /* 브라우저 가로가 768이하일때 */
+            @media screen and (max-width:768px) {
+                .container, .container2{
+                flex-direction: row;
+                flex-wrap: wrap;
+                }
+            
+                nav{
+                    height: 175px;
+                    align-items: flex-start;
+                }
+                .navbar ul{
+                    flex-direction: column;
+                }
+                .navbar ul li{
+                    line-height: 2;
+                }
+            }
+            .container{
+                width: 100%;
+                display: flex;
+                background-color: white;
+            }
+            .container .box1, .box2, .box3, .box4, .box5{
+                margin: 0 auto;
+                padding: 30px;
+                color: black;
+            }
+            .container img{
+                cursor: pointer;
+                width: 300px;
+                height: 280px;
+            }
+           
+            .container .box1 pre, .box2 pre, .box3 pre, .box4 pre, .box5 pre{
+                color: gray;
+            }
+            .container2{
+                width: 100%;
+                display: flex;
+                background-color: white;
+            }
+            .container2 .box1, .box2, .box3, .box4, .box5{
+                margin: 0 auto;
+                padding: 30px;
+                color: black;
+            }
+            .container2 img{
+                cursor: pointer;
+                width: 300px;
+                height: 280px;
+            }
+            .container2 .box1 pre, .box2 pre, .box3 pre, .box4 pre, .box5 pre{
+                color: gray;
+            }
+            .navbar.hide{
+                display: none;
+            }
+            .search-box{
+                display: none;
+                flex: 1;
+            }
+            .search-box.show{
+                display: block;
+            }
+            .search-box input {
+                width: 60%;
+                padding: 10px;
+                margin-left: 30%;
+                font-size: 12px;
+                border: 0;
+            }
+        </style>
+</head>
+<body>
+    <nav>
+    <div class="logo">
+        <h1> &nbsp; <img src="data:image/png;base64,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" width="100">
+            &nbsp; </h1>
+        <!-- 엔티티코드 -->
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="new.html">New Era</a></li>
+            <li><a href="#">Supreme</a></li>
+            <li><a href="aft.html">AFTERMATH</a></li>
+            <li><a href="open.html">Open Yy</a></li>
+        </ul>
+    </div>
+    <div class="search-box">
+        <input type="text" placeholder="검색어를 입력하세요">
+    </div>
+    <div class="icons">
+        <ul>
+            <li><a href="#"><i class="fa-solid fa-magnifying-glass" id="searchIcon"></i></a></li>
+            <li><a href="장바구니.html"><i class="fa-solid fa-bucket"></i></a></li>
+            <li><a href="개인정보.html"><i class="fa-solid fa-user"></i></a></li>
+            <li class="appo"><i class="fa-solid fa-bars"></i></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+        <div class="box1">
+            <a href="https://kream.co.kr/products/593967">
+            <img src="../roro/스크린샷 2026-01-29 164425.png" alt=""></a>            
+            <p>슈프림 워시드 치노 트윌 캠프캡 데님 - 23FW</p>
+            <pre>Supreme Washed Chino Twill Camp Cap Denim <br>- 23FW</pre>
+            <h5>$48 (약 68,500원)</h5>
+        </div>
+        <div class="box2">
+            <a href="https://kream.co.kr/products/483526">
+            <img src="../roro/스크린샷 2026-01-29 164410.png" alt=""></a>
+            <p>슈프림 워시드 치노 트윌 캠프캡 레드 - 25SS</p>
+            <pre>Supreme Washed Chino Twill Camp Cap Red<br>- 25SS</pre>
+            <h5>84,000원</h5>
+        </div>
+        <div class="box3">
+            <a href="https://kream.co.kr/products/463935">
+            <img src="../roro/스크린샷 2026-01-29 164904.png" alt=""></a>
+            <p>슈프림 피그먼트 코티드 S 로고 6-패널 다크 <br>그린 - 25SS</p>
+            <pre>Supreme Pigment Coated S Logo 6-Panel Dark <br>Green - 25SS</pre><br>
+            <h5>88,000원</h5>
+        </div>
+        <div class="box4">
+            <a href="https://kream.co.kr/products/164376">
+            <img src="../roro/스크린샷 2026-01-29 165030.png" alt=""></a>
+            <p>슈프림 워시드 치노 트윌 캠프캡 레오파드 <br>- 23FW </p>
+            <pre>Supreme Washed Chino Twill Camp Cap Leopard <br>- 23FW</pre>
+            <h5>$48 (약 68,500원)</h5>
+        </div>
+        <div class="box5">
+            <a href="https://kream.co.kr/products/77155">
+            <img src="../roro/스크린샷 2026-01-29 165218.png" alt=""></a>
+            <p>슈프림 피그먼트 프린트 S 로고 6-패널 캡 <br>라이트 세이지 - 22FW </p>
+            <pre>Supreme Pigment Print S Logo 6-Panel <br>Light Sage - 22FW</pre>
+            <h5>$48 (약 68,500원)</h5>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="box1">
+            <a href="https://kream.co.kr/products/593967">
+            <img src="../roro/스크린샷 2026-01-29 164425.png" alt=""></a>            
+            <p>슈프림 워시드 치노 트윌 캠프캡 데님 - 23FW</p>
+            <pre>Supreme Washed Chino Twill Camp Cap Denim <br>- 23FW</pre>
+            <h5>$48 (약 68,500원)</h5>
+        </div>
+        <div class="box2">
+            <a href="https://kream.co.kr/products/483526">
+            <img src="../roro/스크린샷 2026-01-29 164410.png" alt=""></a>
+            <p>슈프림 워시드 치노 트윌 캠프캡 레드 - 25SS</p>
+            <pre>Supreme Washed Chino Twill Camp Cap Red<br>- 25SS</pre>
+            <h5>84,000원</h5>
+        </div>
+        <div class="box3">
+            <a href="https://kream.co.kr/products/463935">
+            <img src="../roro/스크린샷 2026-01-29 164904.png" alt=""></a>
+            <p>슈프림 피그먼트 코티드 S 로고 6-패널 다크 <br>그린 - 25SS</p>
+            <pre>Supreme Pigment Coated S Logo 6-Panel Dark <br>Green - 25SS</pre><br>
+            <h5>88,000원</h5>
+        </div>
+        <div class="box4">
+            <a href="https://kream.co.kr/products/164376">
+            <img src="../roro/스크린샷 2026-01-29 165030.png" alt=""></a>
+            <p>슈프림 워시드 치노 트윌 캠프캡 레오파드 <br>- 23FW </p>
+            <pre>Supreme Washed Chino Twill Camp Cap Leopard <br>- 23FW</pre>
+            <h5>$48 (약 68,500원)</h5>
+        </div>
+        <div class="box5">
+            <a href="https://kream.co.kr/products/77155">
+            <img src="../roro/스크린샷 2026-01-29 165218.png" alt=""></a>
+            <p>슈프림 피그먼트 프린트 S 로고 6-패널 캡 <br>라이트 세이지 - 22FW </p>
+            <pre>Supreme Pigment Print S Logo 6-Panel <br>Light Sage - 22FW</pre>
+            <h5>$48 (약 68,500원)</h5>
+        </div>
+    </div>
+    <script>
+    const searchIcon = document.getElementById('searchIcon');
+    const navbar = document.querySelector('.navbar');
+    const searchbox = document.querySelector('.search-box');
+    
+
+    searchIcon.addEventListener('click', () => {
+        navbar.classList.toggle('hide');
+        searchbox.classList.toggle('show');
+    });
+</script>
+</body>
+</html>

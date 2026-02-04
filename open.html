@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--폰트어썸 CDN : -->
+        <script src="https://kit.fontawesome.com/4ec79785b5.js" crossorigin="anonymous"></script>
+        
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            nav{
+                background-color: rgba(128, 128, 128, 0.205);
+                display: flex;
+                justify-content: space-around;
+                height: 70px;
+                align-items: center;
+                padding-top: 15px;
+            }
+        
+            ul{
+                list-style: none;
+                display: flex;
+            }
+            li{
+                padding: 0 15px;
+            }
+            a{
+                text-decoration: none;
+                color: gray;
+                font-weight: 800;
+            }
+            .appo{
+                padding: 0 5px;
+            }
+            a:hover{
+                color: black;
+            }
+            .appo:hover{
+                background-color: blue;
+                cursor: pointer;
+                color: aliceblue;
+                border-radius: 7px;
+            }
+            /* 브라우저 가로가 768이하일때 */
+            @media screen and (max-width:768px) {
+                .container, .container2{
+                flex-direction: row;
+                flex-wrap: wrap;
+                }
+            
+                nav{
+                    height: 175px;
+                    align-items: flex-start;
+                }
+                .navbar ul{
+                    flex-direction: column;
+                }
+                .navbar ul li{
+                    line-height: 2;
+                }
+                
+            }
+            .fixed{
+                position: fixed ;
+                z-index: 999;
+                background-color: #fff;
+                height: 100%;
+                width: 150px;
+                right: 0;
+                top: 0;
+                display: none;
+            }
+            .close{
+                list-style: none;
+                font-size: 20px;
+                color: black;
+            }
+            .fixed h3{
+                text-align: center;
+                margin-top: 30px;
+            }
+            .fixed h4{
+                text-align: center;
+                margin-top: 20px;
+            }
+            .fixed img{
+                margin-left: 25px;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+            .fixed.active{
+                display: block;
+            }
+            section{
+                width: 100%;
+                height: 60vh;
+                height: 60dvh;
+                overflow: hidden;
+                position: relative;
+                min-height: 320px;
+            }
+            .video{
+                position: absolute;
+                height: 100vh; 
+                width: 100vw;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                min-height: 125vh;
+                min-width: 225vw; 
+                
+            }
+            iframe{
+                height: 100%; 
+                width: 100%;
+            } 
+            .container{
+                width: 100%;
+                display: flex;
+                background-color: white;
+            }
+            .container .box1, .box2, .box3, .box4, .box5{
+                margin: 0 auto;
+                padding: 30px;
+                color: black;
+            }
+            .container img{
+                cursor: pointer;
+                width: 300px;
+                height: 280px;
+            }
+            .container .box1 pre, .box2 pre, .box3 pre, .box4 pre, .box5 pre{
+                color: gray;
+            }
+            .container2{
+                width: 100%;
+                display: flex;
+                background-color: white;
+            }
+            .container2 .box1, .box2, .box3, .box4, .box5{
+                margin: 0 auto;
+                padding: 30px;
+                color: black;
+            }
+            .container2 img{
+                cursor: pointer;
+                width: 300px;
+                height: 280px;
+            }
+            .navbar.hide{
+                display: none;
+            }
+            .search-box{
+                display: none;
+                flex: 1;
+            }
+            .search-box.show{
+                display: block;
+            }
+            .search-box input {
+                width: 60%;
+                padding: 10px;
+                margin-left: 30%;
+                font-size: 12px;
+                border: 0;
+            }
+        </style>
+</head>
+<body>
+    <nav>
+    <div class="logo">
+        <h1> &nbsp; <img src="	https://open-yy.com/assets/img/layout/logo_open_black.svg" width="85">
+            <img src="https://open-yy.com/assets/img/layout/logo_yy_black.svg" width="40">
+            &nbsp; </h1>
+        <!-- 엔티티코드 -->
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="new.html">New Era</a></li>
+            <li><a href="sup.html">Supreme</a></li>
+            <li><a href="aft.html">AFTERMATH</a></li>
+            <li><a href="#">Open Yy</a></li>
+        </ul>
+    </div>
+    <div class="search-box">
+        <input type="text" placeholder="검색어를 입력하세요">
+    </div>
+    <div class="icons">
+        <ul>
+            <li><a href="#"><i class="fa-solid fa-magnifying-glass" id="searchIcon"></i></a></li>
+            <li><a href="장바구니.html"><i class="fa-solid fa-bucket"></i></a></li>
+            <li><a href="개인정보.html"><i class="fa-solid fa-user"></i></a></li>
+            <li class="appo"><i class="fa-solid fa-bars"></i></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="fixed">
+    <li class="close"><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
+    <h3>LOOKBOOK</h3><br>
+    <h4>New Era</h4>
+    <a href="https://www.neweracapkorea.com/shop/page.html?id=292"><img src="https://newera5950.jpg3.kr/img/24fw_q.jpg" width="100" alt=""></a>
+    <h4>Supreme</h4>
+    <a href="https://supreme.com/previews/fallwinter2025/hats">
+    <img src="roro/스크린샷 2026-02-04 105153.png" width="100" height="150"></a>
+    <h4>AFTERMATH</h4>
+    <a href="https://www.aftermathhermano.com/features"><img src="roro/스크린샷 2026-02-04 110625.png" width="100" alt=""></a>
+    <h4>Open Yy</h4>
+    <a href="https://open-yy.com/collections/latest_lookbook.html"><img src="roro/스크린샷 2026-02-04 105827.png" width="100" height="150"></a>
+</div> 
+
+<section>
+    <div class="video">
+    <iframe src="https://player.vimeo.com/video/1159594993?background=1&amp;autoplay=1&amp;loop=1&amp;byline=0&amp;title=0&amp;muted=1" 
+    frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" ></iframe>
+    </div>
+</section>
+<div class="container">
+        <div class="box1">
+            <a href="https://open-yy.com/product/detail.html?product_no=4345&cate_no=216&display_group=1">
+            <img src="roro/스크린샷 2026-01-29 163412.png" alt=""></a>
+            <p>YY COTTON BALL CAP, BROWN</p>
+            <br>
+            <h5>83,000원</h5>
+        </div>
+        <div class="box2">
+            <a href="https://open-yy.com/product/detail.html?product_no=5826&cate_no=216&display_group=1">
+            <img src="roro/스크린샷 2026-01-29 163344.png" alt=""></a>
+            <p>JEOKTOMA PATCHED BALL CAP, BROWN</p>
+            <br>
+            <h5>69,000원</h5>
+        </div>
+        <div class="box3">
+            <a href="https://open-yy.com/product/detail.html?product_no=5874&cate_no=216&display_group=1">
+            <img src="roro/스크린샷 2026-01-29 163334.png" alt=""></a>
+            <p>YY GRADIENT BALL CAP, BLACK</p>
+            <br>
+            <h5>96,000원</h5>
+        </div>
+        <div class="box4">
+            <a href="https://open-yy.com/product/detail.html?product_no=5875&cate_no=216&display_group=1">
+            <img src="roro/스크린샷 2026-01-29 163327.png" alt=""></a>
+            <p>YY GRADIENT BALL CAP, GREEN</p>
+            <br>
+            <h5>96,000원</h5>
+        </div>
+        <div class="box5">
+            <a href="https://open-yy.com/product/detail.html?product_no=5876&cate_no=216&display_group=1">
+            <img src="roro/스크린샷 2026-01-29 163317.png" alt=""></a>
+            <p>YY GRADIENT BALL CAP, PURPLE </p>
+            <br>
+            <h5>96,000원</h5>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="box1">
+            <img src="roro/스크린샷 2026-01-29 163412.png" alt="">
+            <p>YY COTTON BALL CAP, BROWN</p>
+            <br>
+            <h5>83,000원</h5>
+        </div>
+        <div class="box2">
+            <img src="roro/스크린샷 2026-01-29 163344.png" alt="">
+            <p>JEOKTOMA PATCHED BALL CAP, BROWN</p>
+            <br>
+            <h5>69,000원</h5>
+        </div>
+        <div class="box3">
+            <img src="roro/스크린샷 2026-01-29 163334.png" alt="">
+            <p>YY GRADIENT BALL CAP, BLACK</p>
+            <br>
+            <h5>96,000원</h5>
+        </div>
+        <div class="box4">
+            <img src="roro/스크린샷 2026-01-29 163327.png" alt="">
+            <p>YY GRADIENT BALL CAP, GREEN</p>
+            <br>
+            <h5>96,000원</h5>
+        </div>
+        <div class="box5">
+            <img src="roro/스크린샷 2026-01-29 163317.png" alt="">
+            <p>YY GRADIENT BALL CAP, PURPLE </p>
+            <br>
+            <h5>96,000원</h5>
+        </div>
+    </div>
+    <script>
+    const searchIcon = document.getElementById('searchIcon');
+    const navbar = document.querySelector('.navbar');
+    const searchbox = document.querySelector('.search-box');
+    
+    const appo = document.querySelector('.appo');
+    const close = document.querySelector('.close');
+    const fixedbox = document.querySelector('.fixed');
+    
+    appo.addEventListener('click', () => {
+        fixedbox.classList.toggle('active');
+    });
+
+    close.addEventListener('click', () => {
+        fixedbox.classList.remove('active');
+    });
+
+    searchIcon.addEventListener('click', () => {
+        navbar.classList.toggle('hide');
+        searchbox.classList.toggle('show');
+    });
+</script>
+</body>
+</html>
